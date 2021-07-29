@@ -23,16 +23,30 @@ async fn main() -> std::io::Result<()> {
 
 pub struct AppState {
     shard_collection: configuration::ShardsCollection,
+    distributed_edges_map: relations::EdgeMap,
+    distributed_vertex_map: relations::VertexMap,
 }
 
 impl AppState {
     fn new() -> AppState {
-        AppState {shard_collection: AppState::initialize_configuration()}
+        AppState {
+            shard_collection: Self::initialize_configuration(), 
+            distributed_edges_map: Self::initialize_edges(), 
+            distributed_vertex_map: Self::initialize_vertexes()
+        }
      }
     
     /// initialize cluster configuration
     fn initialize_configuration() -> configuration::ShardsCollection {
         configuration::ShardsCollection::new()
+    }
+
+    fn initialize_edges() -> relations::EdgeMap {
+        relations::EdgeMap::new()
+    }
+
+    fn initialize_vertexes() -> relations::VertexMap {
+        relations::VertexMap::new()
     }
 }
 

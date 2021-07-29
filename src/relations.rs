@@ -10,6 +10,11 @@ pub struct EdgeMap {
     edge_collection: Arc<RwLock<Vec<Edge>>> 
 }
 
+impl EdgeMap {
+    pub fn new() -> Self {
+        EdgeMap {edge_collection: Arc::new(RwLock::new(Vec::new()))}
+    }
+}
 
 
 // Vertex
@@ -20,4 +25,10 @@ pub struct Vertex {
 
 pub struct VertexMap {
     vertex_collection: Arc<RwLock<Vec<Vertex>>> 
+}
+
+impl VertexMap {
+    pub fn new() -> Self {
+        VertexMap {vertex_collection: Arc::new(RwLock::new(Vec::new()))}
+    }
 }
