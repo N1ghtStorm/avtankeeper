@@ -2,6 +2,7 @@ use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
 
 mod configuration;
 mod api;
+mod relations;
 
 mod configuration_tests;
 
